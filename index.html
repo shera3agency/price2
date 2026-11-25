@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض سعر - خدمات إدارة حسابات التواصل الاجتماعي والحملات الإعلانية | شركة شراع للتسويق الرقمي</title>
+    <!-- استدعاء مكتبة Tailwind CSS للتصميم المتجاوب والعصري -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- استدعاء خط Cairo من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at top right, #064e3b, #042f2e 45%, #022c22 100%);
+            color: #f0fdfa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* تأثيرات البطاقات الزجاجية */
+        .glass-card {
+            background: rgba(19, 78, 74, 0.35);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(45, 212, 191, 0.25);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+        }
+        .glass-card-dark {
+            background: rgba(4, 47, 46, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+        /* حركة الطفو للشعار والأيقونات */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+        /* حركة الطفو والتوهج المستمر للوجو العائم */
+        @keyframes floatAndGlow {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 0 18px rgba(45, 212, 191, 0.45), 0 0 32px rgba(20, 184, 166, 0.25);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.04);
+                box-shadow: 0 0 28px rgba(45, 212, 191, 0.85), 0 0 48px rgba(34, 211, 238, 0.55);
+            }
+        }
+        .floating-glow-logo {
+            animation: floatAndGlow 3.2s ease-in-out infinite;
+        }
+        /* توهج البطاقة المالية */
+        @keyframes goldPulse {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(251, 191, 36, 0.2), 0 15px 35px -5px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 42px rgba(251, 191, 36, 0.42), 0 20px 45px -5px rgba(0, 0, 0, 0.6);
+            }
+        }
+        .financial-glow {
+            animation: goldPulse 3.5s ease-in-out infinite;
+        }
+        /* تأثيرات الموشن لظهور الأقسام والبطاقات */
+        .motion-reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.985);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .motion-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .motion-card {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .motion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.55), 0 0 20px rgba(45, 212, 191, 0.15);
+            border-color: rgba(45, 212, 191, 0.55);
+        }
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #022c22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d9488;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="pb-28 relative">
+
+    <!-- خلفية شبكية هندسية خفيفة -->
+    <div class="fixed inset-0 pointer-events-none opacity-15 z-0" 
+         style="background-image: radial-gradient(#2dd4bf 1px, transparent 1px); background-size: 28px 28px;"></div>
+
+    <!-- رأس الصفحة (Header Infographic Banner) -->
+    <header class="relative z-10 pt-10 pb-12 px-4 border-b border-teal-700/40 bg-gradient-to-b from-teal-950/90 to-transparent">
+        <div class="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
+            <!-- اللوجو الرئيسي في منتصف أعلى العرض -->
+            <div class="w-28 h-28 rounded-2xl p-1.5 bg-gradient-to-tr from-teal-400 to-cyan-300 shadow-2xl animate-float flex-shrink-0">
+                <img src="https://i.ibb.co/3mcGJZDm/f7a2f35c-a1d9-41a9-abab-883812218eaf.jpg" 
+                     alt="شعار شركة شراع للتسويق الرقمي" 
+                     class="w-full h-full object-cover rounded-xl">
+            </div>
+
+            <!-- العنوان الرئيسي والشارة -->
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/40 text-teal-200 px-3.5 py-1 rounded-full text-xs font-bold mb-3">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    عرض سعر
+                </div>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+                    خدمات إدارة حسابات التواصل الاجتماعي والحملات الإعلانية
+                </h1>
+                <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+                    <span class="bg-teal-900/80 border border-teal-500/40 text-teal-100 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold">
+                        مقدم من: شركة شراع للتسويق الرقمي
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للمخطط -->
+    <main class="max-w-7xl mx-auto px-4 mt-8 space-y-12 relative z-10">
+
+        <!-- الرسالة الافتتاحية -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-teal-400">
+            <div class="space-y-3 text-teal-50 text-sm md:text-base leading-relaxed">
+                <p class="font-bold text-white text-base md:text-lg">السادة / المحترمين،</p>
+                <p class="font-semibold text-teal-200">تحية طيبة وبعد،</p>
+                <p>يسر شركة شراع للتسويق الرقمي أن تقدم لكم عرضها الفني والمالي لتولي إدارة حسابات التواصل الاجتماعي والإشراف على الحملات الإعلانية الممولة، وفق خطة عمل تهدف إلى تعزيز الحضور الرقمي للعلامة التجارية، وزيادة الوعي بالخدمات والمنتجات، والوصول إلى الجمهور المستهدف، وتحقيق أفضل استفادة ممكنة من الأنشطة التسويقية الرقمية.</p>
+            </div>
+        </section>
+
+        <!-- أولاً: إدارة حسابات التواصل الاجتماعي -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-cyan-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider">بناء الحضور الرقمي والمحتوى</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">أولاً: إدارة حسابات التواصل الاجتماعي</h2>
+                <p class="text-teal-100 text-sm md:text-base mt-2 leading-relaxed">تتضمن الخدمة إدارة الحسابات الرقمية للعلامة التجارية من خلال خطة محتوى متكاملة تشمل:</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="sm-services-grid"></div>
+        </section>
+
+        <!-- ثانياً: إدارة الحملات الإعلانية الممولة -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-emerald-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">الاستهداف والوصول المدفوع</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">ثانياً: إدارة الحملات الإعلانية الممولة</h2>
+                <p class="text-teal-100 text-sm md:text-base mt-2 leading-relaxed">تتولى شركة شراع تخطيط وإدارة الحملات الإعلانية المدفوعة بهدف الوصول إلى الجمهور المناسب وتحقيق الأهداف التسويقية.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="ads-services-grid"></div>
+        </section>
+
+        <!-- ثالثاً: آلية تنفيذ العمل -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-amber-400">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">مراحل العمل الشهرية</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">ثالثاً: آلية تنفيذ العمل</h2>
+                <p class="text-teal-100 text-sm md:text-base mt-2 leading-relaxed">يتم تنفيذ الخدمات خلال شهر وفق المراحل التالية:</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="execution-phases-grid"></div>
+        </section>
+
+        <!-- رابعاً: المخرجات المتوقعة -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-teal-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-teal-300 uppercase tracking-wider">النتائج الملموسة</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">رابعاً: المخرجات المتوقعة</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="deliverables-grid"></div>
+        </section>
+
+        <!-- خامساً: العرض المالي -->
+        <section class="glass-card motion-reveal financial-glow rounded-3xl p-6 md:p-10 border-2 border-amber-400/70 bg-gradient-to-br from-teal-950/90 via-teal-900/80 to-cyan-950/85 relative overflow-hidden">
+            <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-amber-400/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-16 -top-16 w-56 h-56 bg-teal-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+                <div class="border-b border-teal-700/60 pb-4 mb-6 text-center md:text-right">
+                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">تفاصيل الباقة والتكلفة</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">خامساً: العرض المالي</h2>
+                </div>
+
+                <!-- جدول الخدمات المالية -->
+                <div class="overflow-x-auto mb-8 rounded-2xl border border-teal-700/60 shadow-xl">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-teal-900/90 text-teal-100 border-b border-teal-700">
+                                <th class="p-4 text-sm md:text-base font-black">الخدمة</th>
+                                <th class="p-4 text-sm md:text-base font-black text-center">المدة</th>
+                                <th class="p-4 text-sm md:text-base font-black text-center">التكلفة</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-teal-800/60 text-xs md:text-sm text-teal-50 bg-teal-950/60" id="financial-table-body">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- بطاقة إبراز إجمالي قيمة العرض -->
+                <div class="bg-teal-950/85 border-2 border-amber-400/60 rounded-3xl p-6 md:p-8 text-center shadow-2xl motion-card">
+                    <span class="inline-block bg-amber-500/20 border border-amber-400/50 text-amber-200 text-xs md:text-sm font-black px-4 py-1 rounded-full mb-3">
+                        الباقة الشهرية المتكاملة
+                    </span>
+                    <p class="text-2xl md:text-4xl font-black text-amber-300 tracking-tight">
+                        إجمالي قيمة العرض: 2,300 ريال سعودي فقط لا غير.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- سادساً: الشروط والأحكام -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-t-4 border-cyan-400">
+            <div class="border-b border-teal-700/50 pb-4 mb-6">
+                <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider">الضوابط التنظيمية والتعاقدية</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-1">سادساً: الشروط والأحكام</h2>
+            </div>
+            <ol class="list-decimal list-inside space-y-3 text-xs md:text-sm text-teal-50 leading-relaxed" id="terms-list"></ol>
+        </section>
+
+        <!-- ختاماً -->
+        <section class="glass-card motion-reveal rounded-3xl p-6 md:p-8 border-2 border-teal-400/50 bg-gradient-to-r from-teal-950/90 via-teal-900/75 to-cyan-950/85">
+            <div class="border-b border-teal-700/50 pb-3 mb-5">
+                <h2 class="text-2xl font-black text-white">ختاماً</h2>
+            </div>
+            <div class="space-y-4 text-teal-50 text-sm md:text-base leading-relaxed">
+                <p>تؤمن شركة شراع بأن النجاح في التسويق الرقمي لا يعتمد فقط على الظهور المستمر، بل على تقديم محتوى مؤثر وإدارة احترافية للحسابات وتنفيذ حملات إعلانية قائمة على التحليل والتحسين المستمر.</p>
+                <p>نتطلع إلى بناء شراكة ناجحة معكم والمساهمة في تعزيز حضور علامتكم التجارية وتحقيق أهدافكم التسويقية.</p>
+                <div class="pt-4 border-t border-teal-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
+                    <img src="https://i.ibb.co/3mcGJZDm/f7a2f35c-a1d9-41a9-abab-883812218eaf.jpg" alt="شعار شركة شراع للتسويق الرقمي" class="w-14 h-14 rounded-2xl object-cover border-2 border-teal-400/60 shadow-lg flex-shrink-0">
+                    <div>
+                        <strong class="text-white text-lg md:text-xl font-black block">شركة شراع للتسويق الرقمي</strong>
+                        <span class="text-teal-300 text-xs md:text-sm font-semibold">شريككم في النمو والتوسع الرقمي.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- عناصر عائمة سفلية (الشعار المتحرك المتوهج + واتساب) -->
+    <div class="fixed bottom-5 left-5 z-50 flex items-center gap-3">
+        <div class="floating-glow-logo bg-teal-900/90 backdrop-blur-md p-1.5 rounded-2xl border-2 border-teal-400/80" title="شركة شراع للتسويق الرقمي">
+            <img src="https://i.ibb.co/3mcGJZDm/f7a2f35c-a1d9-41a9-abab-883812218eaf.jpg" alt="شعار شركة شراع" class="w-11 h-11 object-cover rounded-xl">
+        </div>
+        <a href="https://wa.me/966578310776" target="_blank" rel="noopener noreferrer"
+           class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl shadow-2xl transition-transform hover:scale-105 border-2 border-emerald-300"
+           title="تواصل عبر واتساب">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- كود JavaScript لبناء البطاقات وتفعيل التفاعل والموشن -->
+    <script>
+        try {
+            // أولاً: إدارة حسابات التواصل الاجتماعي
+            const smServices = [
+                {
+                    title: "1. إعداد الاستراتيجية التسويقية",
+                    items: [
+                        "دراسة طبيعة النشاط التجاري والخدمات أو المنتجات المقدمة.",
+                        "تحديد الجمهور المستهدف وخصائصه واهتماماته.",
+                        "تحديد الأهداف التسويقية ومؤشرات قياس الأداء.",
+                        "وضع التوجه العام للمحتوى بما يتناسب مع هوية العلامة التجارية.",
+                        "دراسة المنافسين وتحليل طبيعة المحتوى الذي يقدمونه."
+                    ]
+                },
+                {
+                    title: "2. إعداد وإدارة المحتوى",
+                    items: [
+                        "إعداد خطة محتوى شهرية متكاملة.",
+                        "كتابة المحتوى التسويقي والإبداعي بما يتناسب مع طبيعة النشاط.",
+                        "إعداد النصوص التسويقية المصاحبة للتصميمات والمنشورات.",
+                        "تصميم منشورات احترافية متوافقة مع الهوية البصرية.",
+                        "إعداد محتوى تفاعلي يساهم في زيادة مشاركة الجمهور.",
+                        "إعداد محتوى تعريفي وتسويقي للخدمات والمنتجات.",
+                        "تنويع المحتوى بين المنشورات الترويجية والتوعوية والتفاعلية."
+                    ]
+                },
+                {
+                    title: "3. النشر وإدارة الحسابات",
+                    items: [
+                        "جدولة ونشر المحتوى وفق جدول زمني منظم.",
+                        "متابعة أداء المنشورات والتفاعل معها.",
+                        "متابعة التعليقات والرسائل والتفاعل مع الجمهور.",
+                        "الحفاظ على انتظام النشر واستمرارية الحضور الرقمي.",
+                        "تحسين أسلوب التواصل بما يعزز صورة العلامة التجارية."
+                    ]
+                },
+                {
+                    title: "4. إدارة وتحسين الأداء",
+                    items: [
+                        "متابعة مؤشرات أداء الحسابات بشكل دوري.",
+                        "تحليل معدلات الوصول والتفاعل ونمو الجمهور.",
+                        "تحديد أنواع المحتوى الأكثر تحقيقاً للنتائج.",
+                        "تقديم توصيات تطويرية لتحسين الأداء التسويقي."
+                    ]
+                }
+            ];
+
+            // ثانياً: إدارة الحملات الإعلانية الممولة
+            const adsServices = [
+                {
+                    title: "1. التخطيط الإعلاني",
+                    items: [
+                        "دراسة النشاط التجاري وتحديد الأهداف الإعلانية.",
+                        "تحديد الشرائح المستهدفة وفق الموقع الجغرافي والاهتمامات والسلوك الشرائي.",
+                        "اختيار المنصات الإعلانية المناسبة لطبيعة النشاط.",
+                        "إعداد الخطة الإعلانية وتوزيع الميزانيات وفق الأولويات."
+                    ]
+                },
+                {
+                    title: "2. إعداد الحملات الإعلانية",
+                    items: [
+                        "إنشاء وإعداد الحملات الإعلانية على المنصات المناسبة.",
+                        "إعداد الجماهير والاستهدافات الإعلانية.",
+                        "كتابة النصوص الإعلانية والتسويقية.",
+                        "تجهيز التصميمات والمواد الإبداعية للإعلانات.",
+                        "إعداد الحملات وفق الأهداف المحددة، سواء كانت زيادة الوعي أو التفاعل أو الزيارات أو استقبال طلبات التواصل والعملاء المحتملين."
+                    ]
+                },
+                {
+                    title: "3. المتابعة والتحسين",
+                    items: [
+                        "متابعة أداء الحملات الإعلانية بصورة مستمرة.",
+                        "مراقبة تكلفة النتائج ومعدلات التفاعل.",
+                        "اختبار أكثر من صيغة إعلانية عند الحاجة.",
+                        "تحسين الاستهداف والجماهير الإعلانية.",
+                        "إعادة توزيع الميزانية وفق أداء الحملات.",
+                        "إيقاف الإعلانات ضعيفة الأداء وتعزيز الإعلانات الأفضل تحقيقاً للنتائج."
+                    ]
+                },
+                {
+                    title: "4. التقارير الإعلانية",
+                    items: [
+                        "تقديم تقرير يوضح أداء الحملات الإعلانية.",
+                        "تحليل النتائج ومعدلات الوصول والتفاعل.",
+                        "توضيح تكلفة النتائج ومؤشرات الأداء الرئيسية.",
+                        "تقديم توصيات عملية لتطوير الحملات المستقبلية."
+                    ]
+                }
+            ];
+
+            // ثالثاً: آلية تنفيذ العمل
+            const executionPhases = [
+                {
+                    title: "المرحلة الأولى: التجهيز والتخطيط",
+                    accent: "teal",
+                    items: [
+                        "استلام بيانات النشاط والحسابات.",
+                        "دراسة النشاط والجمهور المستهدف.",
+                        "إعداد الاستراتيجية والخطة التسويقية.",
+                        "تجهيز خطة المحتوى والتوجه الإعلاني."
+                    ]
+                },
+                {
+                    title: "المرحلة الثانية: التنفيذ والإطلاق",
+                    accent: "cyan",
+                    items: [
+                        "بدء إعداد وتصميم المحتوى.",
+                        "جدولة ونشر المنشورات.",
+                        "تجهيز وإطلاق الحملات الإعلانية.",
+                        "متابعة التفاعل والنتائج الأولية."
+                    ]
+                },
+                {
+                    title: "المرحلة الثالثة: المتابعة والتحسين",
+                    accent: "amber",
+                    items: [
+                        "متابعة أداء الحسابات والحملات.",
+                        "إجراء التحسينات اللازمة.",
+                        "تطوير المحتوى والاستهداف وفق النتائج.",
+                        "إعداد التقرير الختامي والتوصيات."
+                    ]
+                }
+            ];
+
+            // رابعاً: المخرجات المتوقعة
+            const deliverables = [
+                "خطة محتوى شهرية منظمة.",
+                "محتوى تسويقي وتصميمات احترافية.",
+                "إدارة ومتابعة حسابات التواصل الاجتماعي.",
+                "إعداد وإدارة الحملات الإعلانية الممولة.",
+                "تحسين الأداء الإعلاني والاستهداف.",
+                "تقرير أداء شهري يتضمن النتائج والتوصيات."
+            ];
+
+            // خامساً: جدول العرض المالي
+            const financialRows = [
+                { service: "إدارة حسابات التواصل الاجتماعي", duration: "شهر واحد", cost: "مشمولة" },
+                { service: "إعداد وتصميم المحتوى التسويقي", duration: "شهر واحد", cost: "مشمولة" },
+                { service: "النشر ومتابعة الحسابات", duration: "شهر واحد", cost: "مشمولة" },
+                { service: "إعداد وإدارة الحملات الإعلانية", duration: "شهر واحد", cost: "مشمولة" },
+                { service: "المتابعة والتحسين والتقارير", duration: "شهر واحد", cost: "مشمولة" }
+            ];
+
+            // سادساً: الشروط والأحكام
+            const terms = [
+                "مدة التعاقد شهر واحد تبدأ من تاريخ اعتماد العرض واستلام المتطلبات اللازمة لبدء العمل.",
+                "يتم الاتفاق على المنصات وعدد المنشورات والتصميمات وفق طبيعة النشاط واحتياجاته قبل بدء التنفيذ.",
+                "الميزانية الإعلانية المدفوعة للمنصات الإعلانية غير مشمولة في قيمة العرض، ويتحملها العميل بشكل مستقل.",
+                "لا تشمل الخدمة تكاليف التصوير أو الإنتاج المرئي أو المؤثرين أو التعاونات الخارجية، ما لم يتم الاتفاق عليها بشكل منفصل.",
+                "يلتزم العميل بتوفير المعلومات والمواد اللازمة لتنفيذ الخطة التسويقية.",
+                "يتم اعتماد المحتوى من العميل قبل النشر وفق آلية العمل المتفق عليها.",
+                "تلتزم شركة شراع بتقديم أفضل الممارسات التسويقية والإعلانية لتحقيق الأهداف المحددة، مع العلم أن النتائج تختلف وفق طبيعة النشاط والمنافسة والميزانية الإعلانية."
+            ];
+
+            // دالة بناء بطاقات الخدمات
+            function renderServiceCards(containerId, list, borderClass) {
+                const container = document.getElementById(containerId);
+                list.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = `glass-card-dark motion-card p-6 rounded-2xl border-r-4 ${borderClass}`;
+                    card.innerHTML = `
+                        <h3 class="font-bold text-white text-base md:text-lg border-b border-teal-800/80 pb-3 mb-3">${item.title}</h3>
+                        <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-50 leading-relaxed">
+                            ${item.items.map(li => `<li>${li}</li>`).join('')}
+                        </ul>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            renderServiceCards('sm-services-grid', smServices, 'border-cyan-400');
+            renderServiceCards('ads-services-grid', adsServices, 'border-emerald-400');
+
+            // بناء مراحل تنفيذ العمل
+            const phasesContainer = document.getElementById('execution-phases-grid');
+            executionPhases.forEach(phase => {
+                const card = document.createElement('div');
+                card.className = `glass-card-dark motion-card p-6 rounded-3xl border-t-4 border-${phase.accent}-400`;
+                card.innerHTML = `
+                    <h3 class="font-black text-white text-lg border-b border-teal-800/80 pb-3 mb-4">${phase.title}</h3>
+                    <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-teal-50 leading-relaxed">
+                        ${phase.items.map(li => `<li>${li}</li>`).join('')}
+                    </ul>
+                `;
+                phasesContainer.appendChild(card);
+            });
+
+            // بناء المخرجات المتوقعة
+            const deliverablesContainer = document.getElementById('deliverables-grid');
+            deliverables.forEach(del => {
+                const item = document.createElement('div');
+                item.className = 'glass-card-dark motion-card p-4 rounded-2xl border border-teal-600/40 flex items-center gap-3';
+                item.innerHTML = `
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-400 flex-shrink-0"></span>
+                    <span class="text-xs md:text-sm font-semibold text-teal-50 leading-relaxed">${del}</span>
+                `;
+                deliverablesContainer.appendChild(item);
+            });
+
+            // بناء جدول العرض المالي
+            const tableBody = document.getElementById('financial-table-body');
+            financialRows.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-teal-900/40 transition-colors';
+                tr.innerHTML = `
+                    <td class="p-4 font-bold text-white">${row.service}</td>
+                    <td class="p-4 text-center text-teal-200 font-semibold">${row.duration}</td>
+                    <td class="p-4 text-center">
+                        <span class="bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 px-3 py-1 rounded-full text-xs font-bold">
+                            ${row.cost}
+                        </span>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            // بناء الشروط والأحكام
+            const termsContainer = document.getElementById('terms-list');
+            terms.forEach(term => {
+                const li = document.createElement('li');
+                li.className = 'bg-teal-950/50 p-3.5 rounded-xl border border-teal-800/60';
+                li.textContent = term;
+                termsContainer.appendChild(li);
+            });
+
+            // تفعيل تأثيرات الموشن الانسيابية عند التمرير (Intersection Observer)
+            const revealElements = document.querySelectorAll('.motion-reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, idx) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, idx * 70);
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.04 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        } catch (error) {
+            console.error('حدث خطأ أثناء تهيئة العرض:', error);
+        }
+    </script>
+</body>
+</html>
